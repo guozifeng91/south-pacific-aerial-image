@@ -10,17 +10,18 @@ this will coming soon. but i am sure you can understand the code
 
 ## Run the prototype:
 The trained model is [here](https://github.com/guozifeng91/south-pacific-aerial-image/tree/master/trained_model/tree_localization) in .pb format, which is a serialized tensorflow graph definition with all variables as constants. Loading it restores both the graph definition and the weights. The method on how to operate it can be found [here](https://www.tensorflow.org/mobile/prepare_models#using_the_graph_transform_tool) and [here](https://github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/tools/freeze_graph.py)
-<br></br>
+<br>
 Copy all the files from "localizer_test" folder to your own JAVA project folder, having these packages in your build path:
-<br>[processing 2.2.1](https://processing.org/download/)
-<br>[tensorflow for java](https://www.tensorflow.org/install/install_java#using_tensorflow_with_jdk)
-<br>[openCV 3.3](https://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.3.1/opencv-3.3.1-vc14.exe/download)
-<br>[apache commons compress](http://commons.apache.org/proper/commons-compress/)
-<br>[JTS 1.13](https://github.com/locationtech/jts)
-<br></br>
-The <b>MakePrediction.java</b> makes prediction on a full-size aerial imagery, and export the result as both csv file and equal-sized bounding box image. the csv file shows all the trees found in the imagery in pixel space, as (x, y, type). the rendered image can be overlapped with the input imagery for visualization. Set the variables: <b>root, satelliteImage, predictedCsv, rendering</b> to your input and output file and the <b>model.loadModel()</b> in <b>setup</b> function to where the .pb file is placed. Then launch the program and wait for the result.<br>
+[processing 2.2.1](https://processing.org/download/)
+[tensorflow for java](https://www.tensorflow.org/install/install_java#using_tensorflow_with_jdk)
+[openCV 3.3](https://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.3.1/opencv-3.3.1-vc14.exe/download)
+[apache commons compress](http://commons.apache.org/proper/commons-compress/)
+[JTS 1.13](https://github.com/locationtech/jts)
+</br>
 
-```Java
+The <b>MakePrediction.java</b> makes prediction on a full-size aerial imagery, and export the result as both csv file and equal-sized bounding box image. the csv file shows all the trees found in the imagery in pixel space, as (x, y, type). the rendered image can be overlapped with the input imagery for visualization. Set the variables: <b>root, satelliteImage, predictedCsv, rendering</b> to your input and output file and the <b>model.loadModel()</b> in <b>setup</b> function to where the .pb file is placed. Then launch the program and wait for the result.
+
+```
 String root = "where your imagery is, end with \\";
 String satelliteImage = root + "name of input imagery";
 String predictedCsv = root + "name of output.csv";
@@ -28,11 +29,11 @@ String rendering = root + "name of output.jpg";
 
 model.loadModel("path, end with \\", "name.pb");
 ```
-<br>
-</br>
+
 The <b>TestTrainedModel_AnyPosition_ForVideo.java</b> is an interactive prototype that allows user to navigate through the input imagery and see the prediction at the location he/she points to. Similarly, set <b>file</b> to the location of input imagery and <b>model.loadModel()</b> in <b>setup</b> function to where the .pb model is placed.
-<br></br>
+
 ## Run the street detection model:
+
 The trained model is [here](https://github.com/guozifeng91/south-pacific-aerial-image/tree/master/trained_model/street_segmentation), as the original file is too large to upload, it is packed in zip patches. Download all the files and unzip the <b>street segmentation model.zip</b> gives you the trained model (.wlnet) format
-<br></br>
+
 To run the model in Mathematica, see file [ValidateModel.nb](https://github.com/guozifeng91/south-pacific-aerial-image/blob/master/segmentation/ValidateModel.nb)
