@@ -1,5 +1,5 @@
 # Automated tree localization/classification and street detection from aerial imagery
-This is a project for the [OpenAI challenge](https://werobotics.org/blog/2018/05/16/announcing-winners-open-ai-challenge/) that aiming to detect and localize trees and streets from aerial imagery. The project consist of two CNN model for trees and street respectively. And some code for path optimization, as an example of putting these two parts together. The video of the project is [here](https://www.youtube.com/watch?v=6w0wYUuKb4U)
+This is a project for the [OpenAI challenge](https://werobotics.org/blog/2018/05/16/announcing-winners-open-ai-challenge/) that aimed to detect and localize trees and streets from aerial imagery. The project consist of two CNN model for trees and street respectively. And some code for path optimization, as an example of putting these two parts together. The video of the project is [here](https://www.youtube.com/watch?v=6w0wYUuKb4U)
 # The code
 All the codes for this project are uploaded. The tree localizer was trained with tensorflow in python, and a prototype application of it was implemented in JAVA. The trained model was also uploaded as a [.pb file](https://github.com/guozifeng91/south-pacific-aerial-image/tree/master/trained_model/tree_localization). The street detector was trained and validated in [Mathematica](https://www.wolfram.com/mathematica/) with the reference of [Mathematica implementation of SegNet](http://community.wolfram.com/groups/-/m/t/1250199). The rest part (street filtering and path optimization) were also in Mathematica
 # The training data
@@ -10,6 +10,8 @@ we are working on a easy-use runable package so that you dont have to bother the
 this will coming soon. but i am sure you can understand the code
 
 ## Run the prototype:
+Please follow this [file](https://github.com/guozifeng91/south-pacific-aerial-image/blob/master/guide/guide.pdf) for details<br>
+
 The trained model is [here](https://github.com/guozifeng91/south-pacific-aerial-image/tree/master/trained_model/tree_localization) in .pb format, which is a serialized tensorflow graph definition with all variables as constants. Loading it restores both the graph definition and the weights. The method on how to operate it can be found [here](https://www.tensorflow.org/mobile/prepare_models#using_the_graph_transform_tool) and [here](https://github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/tools/freeze_graph.py)<br>
 
 Copy all the files from "localizer_test" folder to your own JAVA project folder, having these packages in your build path:<br>
