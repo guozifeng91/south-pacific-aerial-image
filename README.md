@@ -5,6 +5,7 @@ All the codes for this project are uploaded. The tree localizer was trained with
 # The training data
 The training data are not provided with the code as they are just too large to upload. The data for tree localization is from the OpenAI challenge, in the format of raw aerial imagery and the geo-location of all trees. The data for street recognition is from ISPRS commission II/4 dataset.
 # How to run
+we are working on a easy-use runable package so that you dont have to bother the following steps anymore
 ## Training the tree detector:
 this will coming soon. but i am sure you can understand the code
 
