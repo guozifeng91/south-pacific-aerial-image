@@ -6,10 +6,16 @@ All the codes for this project are uploaded. The tree localizer was trained with
 The training data are not provided with the code as they are just too large to upload. The data for tree localization is from the OpenAI challenge, in the format of raw aerial imagery and the geo-location of all trees. The data for street recognition is from ISPRS commission II/4 dataset.
 # How to run
 we are working on a easy-use runable package so that you dont have to bother the following steps anymore
-## Training the tree detector:
-this will coming soon. but i am sure you can understand the code
+## Python example:
+A simple python example is given [here](https://github.com/guozifeng91/south-pacific-aerial-image/tree/master/localizer%20python)(It uses the same .pb file with the java example).
+Download the .py file and the data folder, put them together in a new folder, then type in terminal: <b>python tree_detect.py</b>. It will search for all the images in data/test and run prediction for each image, the results will look like this<br>
 
-## Run the prototype:
+![alt text](https://github.com/guozifeng91/south-pacific-aerial-image/blob/master/localizer%20python/data/example1.png)
+![alt text](https://github.com/guozifeng91/south-pacific-aerial-image/blob/master/localizer%20python/data/example2.png)
+
+dependence: [tensorflow](https://www.tensorflow.org/), [numpy](http://www.numpy.org/), [opencv (cv2)](https://pypi.org/project/opencv-python/), [matplotlib](https://matplotlib.org/)<br>
+
+## JAVA app prototype:
 Please follow this [file](https://github.com/guozifeng91/south-pacific-aerial-image/blob/master/guide/guide.pdf) for details<br>
 
 The trained model is [here](https://github.com/guozifeng91/south-pacific-aerial-image/tree/master/trained_model/tree_localization) in .pb format, which is a serialized tensorflow graph definition with all variables as constants. Loading it restores both the graph definition and the weights. The method on how to operate it can be found [here](https://www.tensorflow.org/mobile/prepare_models#using_the_graph_transform_tool) and [here](https://github.com/tensorflow/tensorflow/blob/r1.10/tensorflow/python/tools/freeze_graph.py)<br>
@@ -35,7 +41,7 @@ model.loadModel("path, end with \\", "name.pb");
 
 The <b>TestTrainedModel_AnyPosition_ForVideo.java</b> is an interactive prototype that allows user to navigate through the input imagery and see the prediction at the location he/she points to. Similarly, set <b>file</b> to the location of input imagery and <b>model.loadModel()</b> in <b>setup</b> function to where the .pb model is placed.
 
-## Run the street detection model:
+## Street detection:
 
 The trained model is [here](https://github.com/guozifeng91/south-pacific-aerial-image/tree/master/trained_model/street_segmentation), as the original file is too large to upload, it is packed in zip patches. Download all the files and unzip the <b>street segmentation model.zip</b> gives you the trained model (.wlnet) format<br>
 
